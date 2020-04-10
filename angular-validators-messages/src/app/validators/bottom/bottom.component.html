@@ -1,0 +1,21 @@
+<form [formGroup]="form" (submit)="validate()" #myForm="ngForm" class="validator-bottom">
+  <div class="form-label">
+    <label>Nom</label>
+    <div class="input-validator">
+      <input type="text" [formControl]="titleCtl" />
+      <span
+        class="validator"
+        *ngIf="myForm.submitted && titleCtl.errors.required"
+        >Le champ est requis</span
+      >
+    </div>
+  </div>
+  <div class="form-label">
+    <label>Prénom</label>
+    <input type="text" />
+  </div>
+  <div>
+    {{ form.valid }}
+    <button type="submit">Valider</button>
+  </div>
+</form>
