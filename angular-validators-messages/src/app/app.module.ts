@@ -7,12 +7,14 @@ import { RightComponent } from './validators/right/right.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { BottomComponent } from './validators/bottom/bottom.component';
+import { TooltipComponent } from './validators/tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RightComponent,
-    BottomComponent
+    BottomComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,6 @@ import { BottomComponent } from './validators/bottom/bottom.component';
   ],
   providers: [JsonPipe],
   bootstrap: [AppComponent],
-  entryComponents: [RightComponent, BottomComponent]
+  entryComponents: [RightComponent, BottomComponent, TooltipComponent]
 })
 export class AppModule { }

@@ -1,16 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 .form-label {
   display: flex;
-
+  padding: 5px;
   > label {
     flex: 2;
   }
-  > input,>.input-validator {
+  > .input,
+  > .input-validator {
     flex: 1;
+    display: flex;
+
+    > input {
+      flex: 4;
+      flex-basis: auto;
+    }
   }
 }
 
-
-.validator{
-  color:#ff0000;
+.validator {
+  color: #ff0000;
 }
