@@ -1,0 +1,22 @@
+.validator {
+  color: #ff0000;
+}
+
+.validator-tooltip {
+  color: #fff;
+  position: absolute;
+  top: -100%;
+  background: red;
+  padding: 2px;
+  &:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f00;
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+}

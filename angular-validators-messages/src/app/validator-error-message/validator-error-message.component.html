@@ -1,0 +1,9 @@
+<ng-container *ngIf="formSubmitted$ | async as formSubmitted">
+  <div *ngIf="formSubmitted && control.errors">
+    <ng-container *ngFor="let error of control.errors | keyvalue">
+      <span *ngIf="messages[error.key]" class="validator" [ngClass]="{'validator-tooltip':showAsToolTip}">{{
+        messages[error.key]
+      }}</span>
+    </ng-container>
+  </div>
+</ng-container>
