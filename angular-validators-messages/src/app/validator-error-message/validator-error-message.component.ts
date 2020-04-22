@@ -1,38 +1,26 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
-import { Observable } from 'rxjs/internal/Observable';
-import { map } from 'rxjs/operators';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-validator-error-message',
   templateUrl: './validator-error-message.component.html',
   styleUrls: ['./validator-error-message.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class ValidatorErrorMessageComponent implements OnInit {
+export class ValidatorErrorMessageComponent {
   @Input()
-  control;
+  control: AbstractControl;
 
   @Input()
-  form: FormGroupDirective;
+  formSubmitted: boolean;
 
   @Input()
   messages: Record<string, string>;
 
-  @Input()
-  showAsToolTip = false;
-
-  formSubmitted$: Observable<boolean>;
   constructor() {}
 
-  ngOnInit() {
-    this.formSubmitted$ = this.form.ngSubmit.pipe(
-      map((f) => this.form.submitted)
-    );
-  }
 }

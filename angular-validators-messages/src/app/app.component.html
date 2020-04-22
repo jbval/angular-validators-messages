@@ -8,9 +8,8 @@
 </div>
 <h2>Différentes version d'affichage du message de validation :</h2>
 <nav>
-  <a [routerLink]="'/rightValidator'" routerLinkActive="active-nav">Validation à droite du champ</a>
   <a [routerLink]="'/bottomValidator'" routerLinkActive="active-nav"> Validation sous le champ</a>
-  <a [routerLink]="'/tooltipValidator'" routerLinkActive="active-nav">Validation en tooltip du champ</a>
+  <a [routerLink]="'/rightValidator'" routerLinkActive="active-nav">Validation à droite du champ (obsolète)</a>
+  <a [routerLink]="'/tooltipValidator'" routerLinkActive="active-nav">Validation en tooltip du champ (obsolète)</a>
 </nav>
-<p>Les messages d'erreur ne sont affichés qu'au submit du validator.</p>
 <router-outlet></router-outlet>

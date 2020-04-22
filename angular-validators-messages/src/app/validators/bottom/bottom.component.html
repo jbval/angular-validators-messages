@@ -1,6 +1,6 @@
+<p>Les messages d'erreur ne sont affichés qu'au submit du validator.</p>
 <form
   [formGroup]="form"
-  (submit)="validate()"
   #myForm="ngForm"
   class="validator-bottom"
 >
@@ -10,15 +10,20 @@
       <input type="text" [formControl]="titleCtl" />
       <app-validator-error-message
         [control]="titleCtl"
-        [form]="myForm"
-        [messages]="{ required: 'Le champs est obligatoire' }"
+        [formSubmitted]="myForm.submitted"
+        [messages]="{ required: 'Le champ « Nom » est obligatoire' }"
       ></app-validator-error-message>
-
     </div>
   </div>
   <div class="form-label">
-    <label>Prénom</label>
-    <div class="input"><input type="text" /></div>
+    <label>Prénom<sup>[essayer 'x']</sup></label>
+    <div class="input-validator">
+      <input type="text"  [formControl]="givenNameCtl" />
+      <app-validator-error-message
+        [control]="givenNameCtl"
+        [formSubmitted]="myForm.submitted">
+      </app-validator-error-message>
+    </div>
   </div>
   <div>
     <button type="submit">Valider</button>
