@@ -31,7 +31,10 @@ export class BottomComponent implements OnInit {
     return (control: AbstractControl): ValidationErrors | null => {
       const minLength = 3;
       if (control.value && control.value.length < minLength) {
-        return {dumbRule: {value: control.value, message: 'Le champ doit faire au moins 3 caractères.'}};
+        return {dumbRule: {
+          value: control.value,
+          message: `La chaîne saisie fait ${control.value.length} caractères, la longueur minimum est 3 caractères.`}
+        };
       } else {
         return null;
       }
@@ -40,11 +43,13 @@ export class BottomComponent implements OnInit {
 
   dumbRule2Validator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (control.value && control.value.length && /\d/.test(control.value)) {
-        return {dumbRule2: {value: control.value, message: 'Chiffres interdits.'}};
-      } else {
-        return null;
+      if (control.value && control.value.length) {
+        const matches = new Set(control.value.match(/\d/g));
+        if (matches.size) {
+          return {dumbRule2: {value: control.value, message: `Chiffres interdits (${[...matches.values()].join()})`}};
+        }
       }
+      return null;
     };
   }
 
