@@ -1,12 +1,8 @@
-<div *ngIf="control.invalid && (control.touched || formSubmitted)">
-  <ng-container *ngFor="let error of control.errors | keyvalue">
-    <span *ngIf="messages && messages[error.key]; else messageNotFound" class="validator">
-      {{messages[error.key]}}
-    </span>
-    <ng-template #messageNotFound>
-      <span *ngIf="error.value && error.value.message" class="validator">
-        {{error.value.message}}
-      </span>
-    </ng-template>
-  </ng-container>
-</div>
+<ng-container *ngIf="(errorsToDisplay$ | async) as errorsToDisplay">
+  <div *ngIf="errorsToDisplay && errorsToDisplay.length" class="validator">
+    <ng-container *ngFor="let text of errorsToDisplay; let isFirst = first">
+      <ng-container *ngIf="!isFirst"><br /></ng-container>
+      {{ text }}
+    </ng-container>
+  </div>
+</ng-container>
