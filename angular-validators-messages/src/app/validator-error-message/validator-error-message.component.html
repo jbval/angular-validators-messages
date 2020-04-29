@@ -4,8 +4,8 @@
       {{messages[error.key]}}
     </span>
     <ng-template #messageNotFound>
-      <span *ngIf="control.errors[error.key].message" class="validator">
-        {{control.errors[error.key].message}}
+      <span *ngIf="error.value && error.value.message" class="validator">
+        {{error.value.message}}
       </span>
     </ng-template>
   </ng-container>
