@@ -7,6 +7,7 @@
 <form
   [formGroup]="form"
   #myForm="ngForm"
+  [ngClass]="{'submitted': myForm.submitted}"
   class="validator-bottom"
 >
   <div class="form-label">
