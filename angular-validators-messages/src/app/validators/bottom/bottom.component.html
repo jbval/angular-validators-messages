@@ -15,7 +15,7 @@
       <input type="text" [formControl]="titleCtl" />
       <app-validator-error-message
         [controlErrors]="titleCtl.errors"
-        [touched]="titleCtl.touched"
+        [controlTouched]="titleCtl.touched"
         [formSubmitted]="myForm.submitted"
         [messages]="{ required: 'Le champ « Nom » est obligatoire' }"
       ></app-validator-error-message>
@@ -27,7 +27,7 @@
       <input type="text"  [formControl]="givenNameCtl" />
       <app-validator-error-message
         [controlErrors]="givenNameCtl.errors"
-        [touched]="givenNameCtl.touched"
+        [controlTouched]="givenNameCtl.touched"
         [formSubmitted]="myForm.submitted">
       </app-validator-error-message>
     </div>

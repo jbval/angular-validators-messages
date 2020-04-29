@@ -13,7 +13,7 @@ export class ValidatorErrorMessageComponent implements OnChanges {
   controlErrors: ValidationErrors;
 
   @Input()
-  touched: boolean;
+  controlTouched: boolean;
 
   @Input()
   formSubmitted: boolean;
@@ -25,7 +25,7 @@ export class ValidatorErrorMessageComponent implements OnChanges {
 
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.touched || this.formSubmitted) {
+    if (this.controlTouched || this.formSubmitted) {
       this.errorsToDisplay$.next(this.getErrorsToDisplay(this.controlErrors));
     }
   }
