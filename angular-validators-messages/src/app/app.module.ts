@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { BottomComponent } from './validators/bottom/bottom.component';
 import { TooltipComponent } from './validators/tooltip/tooltip.component';
-import { ValidatorMessageDirective } from './validators/validator-message.directive';
 import { ValidatorErrorMessageComponent } from './validator-error-message/validator-error-message.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { ValidatorErrorMessageComponent } from './validator-error-message/valida
     RightComponent,
     BottomComponent,
     TooltipComponent,
-    ValidatorMessageDirective,
     ValidatorErrorMessageComponent
   ],
   imports: [

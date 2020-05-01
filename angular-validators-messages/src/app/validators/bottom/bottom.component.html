@@ -1,7 +1,13 @@
+<div>Les messages d'erreur sont affichés
+  <ul>
+    <li>pour un champ particulier quand on sort du champ (blur)</li>
+    <li>au submit du formulaire.</li>
+  </ul>
+</div>
 <form
   [formGroup]="form"
-  (submit)="validate()"
   #myForm="ngForm"
+  [ngClass]="{'submitted': myForm.submitted}"
   class="validator-bottom"
 >
   <div class="form-label">
@@ -9,16 +15,23 @@
     <div class="input-validator">
       <input type="text" [formControl]="titleCtl" />
       <app-validator-error-message
-        [control]="titleCtl"
-        [form]="myForm"
-        [messages]="{ required: 'Le champs est obligatoire' }"
+        [controlErrors]="titleCtl.errors"
+        [controlTouched]="titleCtl.touched"
+        [formSubmitted]="myForm.submitted"
+        [messages]="{ required: 'Le champ « Nom » est obligatoire' }"
       ></app-validator-error-message>
-
     </div>
   </div>
   <div class="form-label">
-    <label>Prénom</label>
-    <div class="input"><input type="text" /></div>
+    <label>Prénom<sup>[essayer '0']</sup></label>
+    <div class="input-validator">
+      <input type="text"  [formControl]="givenNameCtl" />
+      <app-validator-error-message
+        [controlErrors]="givenNameCtl.errors"
+        [controlTouched]="givenNameCtl.touched"
+        [formSubmitted]="myForm.submitted">
+      </app-validator-error-message>
+    </div>
   </div>
   <div>
     <button type="submit">Valider</button>
